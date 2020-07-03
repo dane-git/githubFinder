@@ -22,17 +22,13 @@ class App extends Component {
 		return (
 			<div className='App'>
 				<h1>GITHUB APP </h1>
-				{loading ? (
-					<h4>Loading...</h4>
-				) : (
-					<React.Fragment>
-						<Navbar />
-						<h2>Hey {name.toUpperCase()}</h2>
-						<h3> method of render: {foo()}</h3>
-						<h3>method of class: {this.foobar()}</h3>
-						<h3>Conditional:</h3>
-					</React.Fragment>
-				)}
+				<nav className='navbar bg-primary'>
+					<Navbar />
+				</nav>
+				<h2>Hey {name.toUpperCase()}</h2>
+				<h3> method of render: {foo()}</h3>
+				<h3>method of class: {this.foobar()}</h3>
+				<h3>Conditional:</h3>
 			</div>
 		);
 	}
