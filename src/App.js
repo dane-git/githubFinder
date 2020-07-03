@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Navbar from './components/layout/Navbar';
 import './App.css';
 
 class App extends Component {
@@ -21,10 +22,11 @@ class App extends Component {
 		return (
 			<div className='App'>
 				<h1>GITHUB APP </h1>
-				{loaded ? (
+				{loading ? (
 					<h4>Loading...</h4>
 				) : (
 					<React.Fragment>
+						<Navbar />
 						<h2>Hey {name.toUpperCase()}</h2>
 						<h3> method of render: {foo()}</h3>
 						<h3>method of class: {this.foobar()}</h3>
