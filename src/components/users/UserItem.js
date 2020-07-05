@@ -1,26 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-// Adding state to a class based component, a few options:
-// 1. constructor  function => function that runs win the component runs
-class UserItem extends Component {
-	render() {
-		const { avatar_url, login, html_url } = this.props.user;
-		return (
-			<div className='card text-center'>
-				<img
-					src={avatar_url}
-					className='round-img'
-					alt='user'
-					style={{ width: '60px' }}
-				/>
-				<h3>{login}</h3>
-				<a href={html_url} className='btn btn-dark btn-sm my-1'>
-					more
-				</a>
-			</div>
-		);
-	}
-}
+const UserItem = ({ user: { avatar_url, login, html_url } }) => {
+	return (
+		<div className='card text-center'>
+			<img
+				src={avatar_url}
+				className='round-img'
+				alt='user'
+				style={{ width: '60px' }}
+			/>
+			<h3>{login}</h3>
+			<a href={html_url} className='btn btn-dark btn-sm my-1'>
+				more
+			</a>
+		</div>
+	);
+};
 
 export default UserItem;
 
