@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import Navbar from './components/layout/Navbar';
-import UserItem from './components/users/UserItem';
+// import UserItem from './components/users/UserItem';
+import Users from './components/users/Users';
 import './App.css';
 
 class App extends Component {
@@ -26,7 +27,9 @@ class App extends Component {
 				<nav className='navbar bg-primary'>
 					<Navbar />
 				</nav>
-				<UserItem />
+				<div className='container'>
+					<Users />
+				</div>
 				<h2>Hey {name.toUpperCase()}</h2>
 				<h3> method of render: {foo()}</h3>
 				<h3>method of class: {this.foobar()}</h3>
