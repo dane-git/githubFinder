@@ -3,7 +3,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
+//NOTE: using Link here will save the state within the application.
 const Navbar = ({ icon, title }) => {
 	return (
 		<div>
@@ -11,6 +13,14 @@ const Navbar = ({ icon, title }) => {
 				<i className={icon} />
 				{title}
 			</h1>
+			<ul>
+				<li>
+					<Link to='/'>Home</Link>
+				</li>
+				<li>
+					<Link to='/about'>About</Link>
+				</li>
+			</ul>
 		</div>
 	);
 };
