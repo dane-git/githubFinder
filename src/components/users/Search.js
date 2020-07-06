@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
+
 export class Search extends Component {
 	state = {
 		text: '',
 	};
 
+	static propTypes = {
+		searcUsers: PropTypes.func.isRequired,
+	};
 	onSubmit = (e) => {
-		// since this is an onSubmit to a form file you must:
 		e.preventDefault();
-		// without the preventDefault() is would submit to a file.
-		console.log(this.state.text);
+		this.props.searchUsers(this.state.text);
+		this.setState({ text: '' });
 	};
 	onChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
