@@ -10,8 +10,10 @@ export class Search extends Component {
 	};
 
 	//NOTE: THIS ON EVENT STATE CHANGE MAGIC
+
+	// for many input fields on one form: to use one onChange for all in form, use the name of the input and brackets to use the name property as a key
 	onChange = (event) => {
-		this.setState({ text: event.target.value });
+		this.setState({ [event.target.name]: event.target.value });
 	};
 
 	render() {
