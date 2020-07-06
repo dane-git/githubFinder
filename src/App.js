@@ -22,7 +22,9 @@ class App extends Component {
 	// we will use this method to make our api call
 	async componentDidMount() {
 		this.setState({ loading: true });
-		const res = await axios.get('https://api.github.com/users');
+		const res = await axios.get(
+			`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client)secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+		);
 
 		let resReport = {
 			url: res.config.url,
