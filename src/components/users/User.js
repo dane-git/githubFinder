@@ -1,24 +1,19 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import Repos from '../repos/Repos';
 
-export class User extends Component {
-	componentDidMount() {
-		this.props.getUser(this.props.match.params.login);
-		this.props.getUserRepos(this.props.match.params.login);
-	}
 
-	static propTypes = {
-		loading: PropTypes.bool,
-		user: PropTypes.object.isRequired,
-		repos: PropTypes.array.isRequired,
-		getUser: PropTypes.func.isRequired,
-		getUserRepos: PropTypes.func.isRequired,
-	};
 
-	render() {
+const User = ({ user, loading, getUser, getUserRepos, repos, match }) =>  {
+	useEffect(() => {
+		getUser(match.params.login);
+		getUserRepos(match.params.login);
+		// eslint-disable-next-line
+	}, [])
+// this// the above is like the lifecycle method compenentDidMount() - the empty array makes use effect run once. the array is used to define special colnditions when you want the method to run
+
 		const {
 			name,
 			company,
@@ -33,9 +28,8 @@ export class User extends Component {
 			public_repos,
 			public_gists,
 			hireable,
-		} = this.props.user;
+		} = user;
 
-		const { loading, repos } = this.props;
 		if (loading) return <Spinner />;
 
 		return (
@@ -106,7 +100,16 @@ export class User extends Component {
 				<Repos repos={repos} />
 			</Fragment>
 		);
-	}
+	
 }
+
+User.propTypes = {
+	loading: PropTypes.bool,
+	user: PropTypes.object.isRequired,
+	repos: PropTypes.array.isRequired,
+	getUser: PropTypes.func.isRequired,
+	getUserRepos: PropTypes.func.isRequired,
+};
+
 
 export default User;
