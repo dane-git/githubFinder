@@ -16,3 +16,8 @@ To bring in a hook, just import them
 
 `const githubContext = useContext(GithubContext);`  
 `githubContext.users`
+
+
+## REFACTORING 
+
+### Search
