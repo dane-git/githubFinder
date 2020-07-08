@@ -1,23 +1,14 @@
-# this Commit
+# THIS COMMIT
+## CONTEXT API
+Using  context api as a alternative to Redux in order to manage state and context in med to large applications.
 
-## Hooks
-
-Functions that hook into react state and lifecycle features from a function component  
-To bring in a hook, just import them  
-`Import { useState, useEffect } from 'react'`
-
-1. useState
-2. useEffect -> mimic lifecycle
-3. useContext - easy to bring in context
-4. useReducer - create redux like reducer -> function that can dispatch actions to to maniplulate app level state and then it sends that state down to the components that need it
-5. useRef - easier to deal with form submission.
-
-### Implementing context
-
-`const githubContext = useContext(GithubContext);`  
-`githubContext.users`
-
-
-## REFACTORING 
-
-### Search
+   1. in project src folder :
+   * create folder context:
+     * in context folder:
+       * create folder github:
+       * in folder github:
+         1. githubContext.js - initialize a new context
+         2. GithubState.js - where all actions will go, like an action to fetch data.
+         3. githubReducer.js - reducer -> a function that basically decides what is going to happent o your state based on an action.
+     * in  context folder:
+       * types.js - variables of strings to call to change the state within thne reducer.
